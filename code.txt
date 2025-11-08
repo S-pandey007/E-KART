@@ -1,0 +1,11 @@
+import reduxStorage from './reduxStorage';
+
+const persistConfig = {
+  key: 'root',
+  storage: reduxStorage, // now uses AsyncStorage
+};
+
+
+Pause timer 
+
+1. 3:21:58 break
