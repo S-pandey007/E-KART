@@ -42,10 +42,10 @@ const Home = () => {
       <View style={{height:Platform.OS==='android' ? insets.top:0}}/>
       
       <Animated.View style={[moveUpStyle]}>
-        <View>
+        {/* <View> */}
           <MenuHeader scrollY={scrollYGlobal}/>
           <SearchBar/>
-        </View>
+        {/* </View> */}
       </Animated.View>
 
       <Animated.View style={[moveUpStyle,{height:screenHeight}]}>

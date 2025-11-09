@@ -6,6 +6,7 @@ import Home from '../modules/Home/index';
 import Splash from '../modules/Onboard/index';
 import { navigationRef } from './NavigationUtils';
 import MainNavigator from './MainNavigator';
+import Products from '../modules/products';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ const Navigation:FC = () => {
         >
             <Stack.Screen name='Splash' component={Splash} options={{headerShown:false}}/>
             <Stack.Screen name='MainNavigator' component={MainNavigator}/>
+            <Stack.Screen name='Products' component={Products}/>
 
         </Stack.Navigator>
     </NavigationContainer>
