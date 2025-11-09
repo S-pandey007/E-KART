@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { RFValue } from "react-native-responsive-fontsize";
+import UniversalAddItem from "./UniversalAddItem";
 
 const ProductItem = ({ item, isOdd }: any) => {
   return (
@@ -27,10 +28,11 @@ const ProductItem = ({ item, isOdd }: any) => {
             </View>
           </View>
         </View>
+        <UniversalAddItem item={item}/>
       </View>
     </View>
   );
-};
+}; 
 
 export default ProductItem;
 

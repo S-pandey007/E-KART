@@ -7,11 +7,14 @@ import { RFValue } from "react-native-responsive-fontsize";
 import SearchBar from "./atoms/SearchBar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ProductItem from "./atoms/ProductItem";
+import { useAppSelector } from "@/src/store/reduxHook";
+import { selectTotalItemsCart } from "../cart/api/slice";
 
 const Products: FC = () => {
   const route = useRoute();
   const category = route?.params as any;
   const [products, setProducts] = useState<any[]>([]);
+  const count = useAppSelector(selectTotalItemsCart)
 
   const fetchProducts = async () => {
     const data = await getProductsByCategory(category?.id);
@@ -40,7 +43,7 @@ const Products: FC = () => {
         },
       ]}
     >
-      <SearchBar cartLength={2} />
+      <SearchBar cartLength={count} />
       <FlatList
         bounces={false}
         data={products}
