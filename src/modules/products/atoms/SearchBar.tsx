@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React,{FC} from 'react'
 import { RFValue } from 'react-native-responsive-fontsize';
 import Icons from '@/src/components/atoms/Icons';
-import { goBack } from '@/src/navigation/NavigationUtils';
+import { goBack, navigate } from '@/src/navigation/NavigationUtils';
 import { TextInput } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -27,7 +27,7 @@ const SearchBar:FC<SearchBarProps>= ({cartLength}) => {
             />
         </View>
         <Icons name='heart-outline' size={24} iconFamily='Ionicons' color='#000'/>
-        <Pressable>
+        <Pressable onPress={()=>navigate("Cart")}>
             <Icons name='cart-sharp' size={24} iconFamily='Ionicons' color='#000'/>
             {
                 cartLength>0 &&
