@@ -7,6 +7,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import { Colors } from '@/src/utils/Constants';
 import RollingContent from 'react-native-rolling-bar'
 import { searchItems } from '@/src/utils/db';
+import { navigate } from '@/src/navigation/NavigationUtils';
 const SearchBar = () => {
     const [isOn,setIsOn] = useState(false);
 
@@ -23,7 +24,7 @@ const SearchBar = () => {
                 source={isOn?switch_on:switch_off} style={styles.switchIcon}/>
             </Pressable>
 
-            <Pressable style={styles.searchContainer}>
+            <Pressable style={styles.searchContainer} onPress={()=>navigate("Search")}>
                 <Icons name="search" iconFamily='Ionicons' size={20} color='black'/>
                 <RollingContent interval={3000}
                 defaultStyle={false}

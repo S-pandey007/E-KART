@@ -13,6 +13,8 @@ import RazorpayPaymentWebView from "../components/organisms/RazorpayPaymentWebVi
 import Login from "../modules/login";
 import EmailVerification from "../modules/email-Verification";
 import Registration from "../modules/registration";
+import SearchScreen from "../modules/Search";
+import SearchResult from "../modules/SearchResult";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +43,8 @@ const Navigation: FC = () => {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="EmailVerification" component={EmailVerification} />
         <Stack.Screen name="Registration" component={Registration} />
+        <Stack.Screen name="Search" component={SearchScreen}/>
+        <Stack.Screen name="SearchResult" component={SearchResult}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

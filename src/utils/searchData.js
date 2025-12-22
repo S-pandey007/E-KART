@@ -1,0 +1,259 @@
+export const recentSearches = [
+  {
+    id: "1",
+    title: "mobile 5g",
+    image: "https://imageio.forbes.com/specials-images/imageserve/6321aca5df0a9fa9eee9950b/0x0.jpg?format=jpg&crop=1456,970,x63,y104,safe&width=1200",
+  },
+  {
+    id: "2",
+    title: "decorative lights",
+    image: "https://tse4.mm.bing.net/th/id/OIP.7WAKHA8XIsasnQWT_z0J-AHaEu?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+  },
+  {
+    id: "3",
+    title: "gaming laptop",
+    image: "https://tse4.mm.bing.net/th/id/OIP.mZnyxMDtNDj0TbsS0IGrXwHaD4?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+  },
+  {
+    id: "4",
+    title: "mobile 5g",
+    image: "https://imageio.forbes.com/specials-images/imageserve/6321aca5df0a9fa9eee9950b/0x0.jpg?format=jpg&crop=1456,970,x63,y104,safe&width=1200",
+  },
+  {
+    id: "5",
+    title: "decorative lights",
+    image: "https://tse4.mm.bing.net/th/id/OIP.7WAKHA8XIsasnQWT_z0J-AHaEu?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+  },
+  {
+    id: "6",
+    title: "gaming laptop",
+    image: "https://tse4.mm.bing.net/th/id/OIP.mZnyxMDtNDj0TbsS0IGrXwHaD4?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+  },
+];
+
+export const trendingSearches = [
+  {
+    id: "1",
+    title: "Realme p4 x5g",
+    image: "https://tse3.mm.bing.net/th/id/OIP.1-7jfgdTzEVdSfy01ITNvAHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+  },
+  {
+    id: "2",
+    title: "Soap base",
+    image: "https://i.pinimg.com/originals/0f/2e/fb/0f2efbdcd4852b749e0b335fbd989421.jpg",
+  },
+  {
+    id: "3",
+    title: "Motorola edge 70 5g",
+    image: "https://cdn.mos.cms.futurecdn.net/DvXgTv6naP6NA9xwQt8ZgD.jpg",
+  },
+  {
+    id: "4",
+    title: "Inflatable sofa",
+    image: "https://m.media-amazon.com/images/I/71W7vlTOH-L._AC_SL1500_.jpg",
+  },
+];
+
+export const popularProducts = [
+  {
+    id: "1",
+    name: "OnePlus Headset",
+    image: "https://tse3.mm.bing.net/th/id/OIP.0URO7YB-HRE9RP4ETTlpVQHaFj?cb=ucfimg2&ucfimg=1&w=630&h=473&rs=1&pid=ImgDetMain&o=7&rm=3",
+    category: "Headset",
+  },
+  {
+    id: "2",
+    name: "Kids' Mufflers",
+    image: "https://rukminim2.flixcart.com/image/1200/1239/xif0q/kids-muffler/e/6/z/12-18-months-pl-02-peach-01-zacharias-original-imaggzgveh8gdeb9.jpeg?q=60",
+    category: "Accessories",
+  },
+  {
+    id: "3",
+    name: "Boult True Wireless",
+    image: "https://m.media-amazon.com/images/I/51IddzGCTtL._SL1018_.jpg",
+    category: "Earbuds",
+  },
+  {
+    id: "4",
+    name: "OnePlus Headset",
+    image: "https://tse3.mm.bing.net/th/id/OIP.0URO7YB-HRE9RP4ETTlpVQHaFj?cb=ucfimg2&ucfimg=1&w=630&h=473&rs=1&pid=ImgDetMain&o=7&rm=3",
+    category: "Headset",
+  },
+  {
+    id: "5",
+    name: "Kids' Mufflers",
+    image: "https://rukminim2.flixcart.com/image/1200/1239/xif0q/kids-muffler/e/6/z/12-18-months-pl-02-peach-01-zacharias-original-imaggzgveh8gdeb9.jpeg?q=60",
+    category: "Accessories",
+  },
+  {
+    id: "6",
+    name: "Boult True Wireless",
+    image: "https://m.media-amazon.com/images/I/51IddzGCTtL._SL1018_.jpg",
+    category: "Earbuds",
+  },
+  {
+    id: "7",
+    name: "OnePlus Headset",
+    image: "https://tse3.mm.bing.net/th/id/OIP.0URO7YB-HRE9RP4ETTlpVQHaFj?cb=ucfimg2&ucfimg=1&w=630&h=473&rs=1&pid=ImgDetMain&o=7&rm=3",
+    category: "Headset",
+  },
+  {
+    id: "8",
+    name: "Kids' Mufflers",
+    image: "https://rukminim2.flixcart.com/image/1200/1239/xif0q/kids-muffler/e/6/z/12-18-months-pl-02-peach-01-zacharias-original-imaggzgveh8gdeb9.jpeg?q=60",
+    category: "Accessories",
+  },
+  {
+    id: "9",
+    name: "Boult True Wireless",
+    image: "https://m.media-amazon.com/images/I/51IddzGCTtL._SL1018_.jpg",
+    category: "Earbuds",
+  },
+];
+
+export const discoverMoreData = [
+  { id: "1", title: "Mobiles" },
+  { id: "2", title: "Shoes" },
+  { id: "3", title: "T shirts" },
+  { id: "4", title: "Laptops" },
+  { id: "5", title: "Watches" },
+  { id: "6", title: "TV" },
+  { id: "7", title: "Sarees" },
+  { id: "8", title: "Headphones" },
+  { id: "9", title: "Bluetooth" },
+  { id: "10", title: "Fridge" },
+  { id: "11", title: "Bedsheet" },
+  { id: "12", title: "Water bottle" },
+];
+
+
+// dummy data for search results products
+export const SearchResultproducts = [
+  {
+    id: "1",
+    title: "MOTOROLA g35 5G (Midnight Black, 128 GB)",
+    image: "https://tse3.mm.bing.net/th/id/OIP.Onr8BzoADBUDbzPrIJ6QYAHaHa?cb=ucfimg2&ucfimg=1&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3",
+    rating: 4.3,
+    ratingCount: "1,12,529",
+    assured: true,
+    discountPercent: 20,
+    originalPrice: 12499,
+    sellingPrice: 9999,
+    wowPrice: 8999,
+    exchangeOffer: "Upto ₹8,250 Off on Exchange",
+    deliveryText: "EXPRESS Delivery by today, 11 PM",
+    warranty: "1 year warranty by MOTOROLA",
+  },
+  {
+    id: "2",
+    title: "SAMSUNG Galaxy F15 5G (Groovy Violet, 128 GB)",
+    image: "https://images.samsung.com/is/image/samsung/p6pim/in/sm-e156blvdins/gallery/in-galaxy-f15-5g-4gb-memory-sm-e156blvdins-543082864?$650_519_PNG$",
+    rating: 4.4,
+    ratingCount: "89,340",
+    assured: true,
+    discountPercent: 25,
+    originalPrice: 15999,
+    sellingPrice: 11999,
+    wowPrice: 10999,
+    exchangeOffer: "Upto ₹9,000 Off on Exchange",
+    deliveryText: "Delivery by tomorrow, 10 PM",
+    warranty: "1 year warranty by SAMSUNG",
+  },
+  {
+    id: "3",
+    title: "REDMI 13C 5G (Startrail Green, 256 GB)",
+    image: "https://m.media-amazon.com/images/I/81H7FJtH4SL._SL1500_.jpg",
+    rating: 4.2,
+    ratingCount: "1,45,210",
+    assured: true,
+    discountPercent: 18,
+    originalPrice: 14999,
+    sellingPrice: 12299,
+    wowPrice: 11499,
+    exchangeOffer: "Upto ₹8,000 Off on Exchange",
+    deliveryText: "EXPRESS Delivery by today, 9 PM",
+    warranty: "1 year warranty by REDMI",
+  },
+  {
+    id: "4",
+    title: "realme Narzo 60x 5G (Nebula Purple, 128 GB)",
+    image: "https://www.mobiledokan.com/media/realme-15-pro-silk-purple-official.webp",
+    rating: 4.1,
+    ratingCount: "76,845",
+    assured: false,
+    discountPercent: 22,
+    originalPrice: 13999,
+    sellingPrice: 10899,
+    wowPrice: 9999,
+    exchangeOffer: "Upto ₹7,500 Off on Exchange",
+    deliveryText: "Delivery in 2 days",
+    warranty: "1 year warranty by realme",
+  },
+  {
+    id: "5",
+    title: "POCO M6 Pro 5G (Power Black, 128 GB)",
+    image: "https://cdn.zeebiz.com/sites/default/files/2023/09/08/259800-pocom6pro5greview.jpg?im=FitAndFill=(1200,900)",
+    rating: 4.3,
+    ratingCount: "98,120",
+    assured: true,
+    discountPercent: 30,
+    originalPrice: 14999,
+    sellingPrice: 10499,
+    wowPrice: 9799,
+    exchangeOffer: "Upto ₹8,500 Off on Exchange",
+    deliveryText: "EXPRESS Delivery by today, 8 PM",
+    warranty: "1 year warranty by POCO",
+  },
+  {
+    id: "6",
+    title: "iQOO Z6 Lite 5G (Mystic Night, 128 GB)",
+    image: "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1724238947656/1ba3fabf27fd977e810b8d6d7aeff84c.png",
+    rating: 4.0,
+    ratingCount: "65,432",
+    assured: false,
+    discountPercent: 15,
+    originalPrice: 13999,
+    sellingPrice: 11899,
+    wowPrice: 11299,
+    exchangeOffer: "Upto ₹7,000 Off on Exchange",
+    deliveryText: "Delivery by tomorrow, 9 PM",
+    warranty: "1 year warranty by iQOO",
+  },
+];
+
+// brand dummy data
+
+export const brands = [
+  {
+    id: "1",
+    name: "Motorola",
+    logo: "https://static.vecteezy.com/system/resources/previews/020/927/493/non_2x/motorola-brand-logo-phone-symbol-blue-design-usa-mobile-illustration-free-vector.jpg",
+  },
+  {
+    id: "2",
+    name: "Infinix",
+    logo: "https://tse4.mm.bing.net/th/id/OIP.1O5QoQTIrqbcwXoVaJBKuAHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+  },
+  {
+    id: "3",
+    name: "OPPO",
+    logo: "https://tse1.mm.bing.net/th/id/OIP.A6LcbCjZGvfjrSzElCfBRgHaHa?cb=ucfimg2&ucfimg=1&w=2048&h=2048&rs=1&pid=ImgDetMain&o=7&rm=3",
+  },
+  {
+    id: "4",
+    name: "Samsung",
+    logo: "https://th.bing.com/th/id/OIP.QefPdoXRvLTpTSUSmnmp3wHaHa?o=7&cb=ucfimg2&rm=3&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+  }
+];
+
+// header filter options
+export const filters = [
+  { id: "1", title: "5G" },
+  { id: "2", title: "Delivery in 1 Day" },
+  { id: "3", title: "Compare" },
+  { id: "4", title: "Assured" },
+  { id: "5", title: "Discount" },
+  { id: "6", title: "Exchange Offer" },
+];
+
+
