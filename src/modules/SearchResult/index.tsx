@@ -1,41 +1,42 @@
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-  ActivityIndicator,
-  ToastAndroid,
-} from "react-native";
+import { FlatList, StyleSheet, View, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import SearchInput from "../Search/molecules/SearchInput";
 import FilterChipList from "./molecule/FilterChipList";
-import { brands, filters } from "@/src/utils/searchData";
+import { AdvertisementBannerImage, filters } from "@/src/utils/searchData";
 import ProductCard from "./organisms/ProductCard";
 import BrandExplore from "./organisms/BrandExplore";
 import BottomActionBar from "./organisms/BottomActionBar";
 import { RFValue } from "react-native-responsive-fontsize";
 import { useRoute } from "@react-navigation/native";
 import { useSearchProducts } from "./api/useSearchProducts";
-import { createBrandData } from "@/src/utils/Helper";
+
+import FreshSelectionSection from "@/src/components/organisms/FreshSelectionSection";
+import AdvertisementBanner from "@/src/components/organisms/AdvertisementBanner";
+import SponsoredProducts from "@/src/components/organisms/SponsoredProducts";
+import InfluencerCarousel from "@/src/components/organisms/InfluencerCarousel";
+import { createFeed } from "@/src/utils/Helper";
+// import { createComponentData } from "@/src/utils/Helper";
 
 const SearchResult = () => {
   const route = useRoute<any>();
   const [query, setQuery] = useState(route.params.query);
   const [search, setSearch] = useState("");
-  const [brands, setBrands] = useState([]);
+  const [feed, setFeed] = useState<any[]>([]);
+
   const insets = useSafeAreaInsets();
 
-  const { SearchResult, loading } = useSearchProducts(query);
-
+  const { SearchResult, loading, loadMore, loadingMore } =
+    useSearchProducts(query);
   useEffect(() => {
-    const res = createBrandData(SearchResult);
-    setBrands(res);
-  }, [SearchResult]);
+    if (!SearchResult) return;
 
+    const feedData = createFeed({
+      products: SearchResult.products || [],
+      influencers: SearchResult.influencers || [],
+    });
+    setFeed(feedData);
+  }, [SearchResult]);
 
   return (
     <>
@@ -60,35 +61,72 @@ const SearchResult = () => {
           />
 
           {/* product card  */}
-
           <FlatList
-            data={SearchResult}
-            keyExtractor={(item) => item?._id}
+            data={feed}
+            keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{
               paddingBottom: RFValue(30) + insets.bottom + 20,
             }}
-            renderItem={({ item }) => (
-              <ProductCard
-                title={item.name}
-                image={item.image}
-                rating={item.rating}
-                ratingCount={item.ratingCount}
-                assured={item.assured}
-                sellingPrice={item.sellingPrice}
-                originalPrice={item.originalPrice}
-                discountPercemtage={item.discountPercent}
-                deliveryText={item.deliveryText}
-                onPress={() => console.log(item.name)}
-              />
-            )}
-            ListFooterComponent={
-              <BrandExplore
-                headingTitle="Explore our various best selling brands"
-                brands={brands}
-              />
-            }
+            renderItem={({ item }) => {
+              switch (item.type) {
+                case "PRODUCT_LIST":
+                  return (
+                    <View>
+                      {item.data.map((product: any) => (
+                        <ProductCard
+                          key={product._id}
+                          title={product.name}
+                          image={product.image}
+                          rating={product.rating}
+                          ratingCount={product.ratingCount}
+                          assured={product.assured}
+                          sellingPrice={product.sellingPrice}
+                          originalPrice={product.originalPrice}
+                          discountPercemtage={product.discountPercent}
+                          deliveryText={product.deliveryText}
+                          onPress={() => console.log(product.name)}
+                        />
+                      ))}
+                    </View>
+                  );
+
+                case "BRAND_EXPLORE":
+                  return (
+                    <BrandExplore
+                      headingTitle="Explore our various best selling brands"
+                      brands={item.data}
+                    />
+                  );
+
+                case "FRESH_SELECTION":
+                  return <FreshSelectionSection freshCollection={item.data} />;
+
+                case "ADVERTISEMENT":
+                  return (
+                    <AdvertisementBanner image={AdvertisementBannerImage} />
+                  );
+
+                case "SPONSORED_PRODUCTS":
+                  return (
+                    <SponsoredProducts
+                      title="Sponsored Products"
+                      sponsore={item.data}
+                    />
+                  );
+
+                case "INFLUENCER":
+                  return <InfluencerCarousel influencerData={item.data} />;
+
+                default:
+                  return null;
+              }
+            }}
+            onEndReached={loadMore}
+            onEndReachedThreshold={0.8}
+            ListFooterComponent={loadingMore ? <ActivityIndicator /> : null}
           />
+
           <View style={[styles.bottomBarContainer]}>
             <BottomActionBar
               onSort={() => console.log("Sort")}

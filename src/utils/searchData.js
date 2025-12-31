@@ -221,6 +221,17 @@ export const SearchResultproducts = [
   },
 ];
 
+
+// header filter options
+export const filters = [
+  { id: "1", title: "5G" },
+  { id: "2", title: "Delivery in 1 Day" },
+  { id: "3", title: "Compare" },
+  { id: "4", title: "Assured" },
+  { id: "5", title: "Discount" },
+  { id: "6", title: "Exchange Offer" },
+];
+
 // brand dummy data
 
 export const brands = [
@@ -246,14 +257,98 @@ export const brands = [
   }
 ];
 
-// header filter options
-export const filters = [
-  { id: "1", title: "5G" },
-  { id: "2", title: "Delivery in 1 Day" },
-  { id: "3", title: "Compare" },
-  { id: "4", title: "Assured" },
-  { id: "5", title: "Discount" },
-  { id: "6", title: "Exchange Offer" },
+
+
+
+// fresh product list [animated flatList component]
+export const freshSelectionProducts = [
+  {
+    id: "1",
+    title: "Zixer High Tops For Men",
+    image:
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772",
+    rating: 3.8,
+    originalPrice: 2999,
+    sellingPrice: 769,
+    discountPercent: 74,
+  },
+  {
+    id: "2",
+    title: "Zixer Mens Trekking Shoes",
+    image:
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
+    rating: 3.6,
+    originalPrice: 2999,
+    sellingPrice: 769,
+    discountPercent: 74,
+  },
+  {
+    id: "3",
+    title: "Zixer Chunky Colors Sneakers",
+    image:
+      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
+    rating: 3.8,
+    originalPrice: 2999,
+    sellingPrice: 769,
+    discountPercent: 74,
+  },
+];
+
+
+export const AdvertisementBannerImage ="https://static.vecteezy.com/system/resources/previews/002/006/774/large_2x/paper-art-shopping-online-on-smartphone-and-new-buy-sale-promotion-backgroud-for-banner-market-ecommerce-free-vector.jpg"
+
+
+// top influncer 
+export const influencerData = [
+  {
+    id: "1",
+    image:
+      "https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg",
+    views: "2.1L",
+    products: 1,
+  },
+  {
+    id: "2",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJbaBw2dyYma9Rl8IfxBL-0RBZYwzD5f1Fcg&s",
+    views: "8.8L",
+    products: 2,
+  },
+  {
+    id: "3",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGTIHPz2zWOovbM2IJ6JT_hzm26icllgFQyg&s",
+    views: "1.5L",
+    products: 1,
+  },
+  {
+    id: "4",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOzb3jTRVr_AIOPlZ04UVdwk8Xfri9ps05LQ&s",
+    views: "1.5L",
+    products: 1,
+  },
+  {
+    id: "5",
+    image:
+      "https://www.shutterstock.com/image-photo/saree-photography-fashion-model-260nw-2195825443.jpg",
+    views: "1.5L",
+    products: 1,
+  },
+  {
+    id: "6",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk46KkkvPU44-bElYmP8akiDfaVhVkwoGbBA&s",
+    views: "1.5L",
+    products: 1,
+  },
+  {
+    id: "7",
+    image:
+      "https://i.pinimg.com/videos/thumbnails/originals/74/13/9e/74139ebf1d9650c70cd356ad46fc2ad7.0000000.jpg",
+    views: "1.5L",
+    products: 1,
+  },
 ];
 
 

@@ -23,7 +23,7 @@ const FilterChipList:React.FC<Props> = ({
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item)=>item.id}
       renderItem={({item})=>(
-        <FilterChip title={item.title} onPress={()=>onSelect?.(item)}/>
+        <FilterChip key={item.id} title={item.title} onPress={()=>onSelect?.(item)}/>
       )}
       />
     </View>

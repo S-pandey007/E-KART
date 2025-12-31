@@ -15,6 +15,7 @@ export enum Colors {
   lightText = "#222",
   background = '#fff',
   text = '#222',
+  primaryBG='#e5eefaff'
 }
 
 export const formatDate = (dateString: string): string => {

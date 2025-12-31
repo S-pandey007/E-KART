@@ -20,6 +20,9 @@ import { navigate } from "@/src/navigation/NavigationUtils";
 import { useDebounce } from "@/src/hooks/useDebounce";
 import { useSearchSuggestion } from "./api/useSearchSuggestion";
 import SearchSuggestionList from "./organisms/SearchSuggestionList";
+import InfluencerCarousel from "@/src/components/organisms/InfluencerCarousel";
+
+
 
 const SearchScreen = () => {
   const [search, setSearch] = useState("");
@@ -45,6 +48,7 @@ const SearchScreen = () => {
         onCameraPress={() => navigate("SearchResult")}
         onSubmit={callSearchAPI}
       />
+      
       {search.length > 0 && (
         <SearchSuggestionList
           loading={loading}
@@ -59,6 +63,7 @@ const SearchScreen = () => {
           }}
         />
       )}
+      
       {search.length === 0 && (
         <FlatList
           data={popularProducts}
@@ -104,6 +109,7 @@ const SearchScreen = () => {
               </View>
 
               <SectionTitle title="Popular Products" />
+              
             </>
           }
           renderItem={({ item }) => (
