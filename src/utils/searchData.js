@@ -2,32 +2,38 @@ export const recentSearches = [
   {
     id: "1",
     title: "mobile 5g",
-    image: "https://imageio.forbes.com/specials-images/imageserve/6321aca5df0a9fa9eee9950b/0x0.jpg?format=jpg&crop=1456,970,x63,y104,safe&width=1200",
+    image:
+      "https://imageio.forbes.com/specials-images/imageserve/6321aca5df0a9fa9eee9950b/0x0.jpg?format=jpg&crop=1456,970,x63,y104,safe&width=1200",
   },
   {
     id: "2",
     title: "decorative lights",
-    image: "https://tse4.mm.bing.net/th/id/OIP.7WAKHA8XIsasnQWT_z0J-AHaEu?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image:
+      "https://tse4.mm.bing.net/th/id/OIP.7WAKHA8XIsasnQWT_z0J-AHaEu?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     id: "3",
     title: "gaming laptop",
-    image: "https://tse4.mm.bing.net/th/id/OIP.mZnyxMDtNDj0TbsS0IGrXwHaD4?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image:
+      "https://tse4.mm.bing.net/th/id/OIP.mZnyxMDtNDj0TbsS0IGrXwHaD4?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     id: "4",
     title: "mobile 5g",
-    image: "https://imageio.forbes.com/specials-images/imageserve/6321aca5df0a9fa9eee9950b/0x0.jpg?format=jpg&crop=1456,970,x63,y104,safe&width=1200",
+    image:
+      "https://imageio.forbes.com/specials-images/imageserve/6321aca5df0a9fa9eee9950b/0x0.jpg?format=jpg&crop=1456,970,x63,y104,safe&width=1200",
   },
   {
     id: "5",
     title: "decorative lights",
-    image: "https://tse4.mm.bing.net/th/id/OIP.7WAKHA8XIsasnQWT_z0J-AHaEu?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image:
+      "https://tse4.mm.bing.net/th/id/OIP.7WAKHA8XIsasnQWT_z0J-AHaEu?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     id: "6",
     title: "gaming laptop",
-    image: "https://tse4.mm.bing.net/th/id/OIP.mZnyxMDtNDj0TbsS0IGrXwHaD4?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image:
+      "https://tse4.mm.bing.net/th/id/OIP.mZnyxMDtNDj0TbsS0IGrXwHaD4?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
   },
 ];
 
@@ -35,12 +41,14 @@ export const trendingSearches = [
   {
     id: "1",
     title: "Realme p4 x5g",
-    image: "https://tse3.mm.bing.net/th/id/OIP.1-7jfgdTzEVdSfy01ITNvAHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image:
+      "https://tse3.mm.bing.net/th/id/OIP.1-7jfgdTzEVdSfy01ITNvAHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     id: "2",
     title: "Soap base",
-    image: "https://i.pinimg.com/originals/0f/2e/fb/0f2efbdcd4852b749e0b335fbd989421.jpg",
+    image:
+      "https://i.pinimg.com/originals/0f/2e/fb/0f2efbdcd4852b749e0b335fbd989421.jpg",
   },
   {
     id: "3",
@@ -58,13 +66,15 @@ export const popularProducts = [
   {
     id: "1",
     name: "OnePlus Headset",
-    image: "https://tse3.mm.bing.net/th/id/OIP.0URO7YB-HRE9RP4ETTlpVQHaFj?cb=ucfimg2&ucfimg=1&w=630&h=473&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image:
+      "https://tse3.mm.bing.net/th/id/OIP.0URO7YB-HRE9RP4ETTlpVQHaFj?cb=ucfimg2&ucfimg=1&w=630&h=473&rs=1&pid=ImgDetMain&o=7&rm=3",
     category: "Headset",
   },
   {
     id: "2",
     name: "Kids' Mufflers",
-    image: "https://rukminim2.flixcart.com/image/1200/1239/xif0q/kids-muffler/e/6/z/12-18-months-pl-02-peach-01-zacharias-original-imaggzgveh8gdeb9.jpeg?q=60",
+    image:
+      "https://rukminim2.flixcart.com/image/1200/1239/xif0q/kids-muffler/e/6/z/12-18-months-pl-02-peach-01-zacharias-original-imaggzgveh8gdeb9.jpeg?q=60",
     category: "Accessories",
   },
   {
@@ -76,13 +86,15 @@ export const popularProducts = [
   {
     id: "4",
     name: "OnePlus Headset",
-    image: "https://tse3.mm.bing.net/th/id/OIP.0URO7YB-HRE9RP4ETTlpVQHaFj?cb=ucfimg2&ucfimg=1&w=630&h=473&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image:
+      "https://tse3.mm.bing.net/th/id/OIP.0URO7YB-HRE9RP4ETTlpVQHaFj?cb=ucfimg2&ucfimg=1&w=630&h=473&rs=1&pid=ImgDetMain&o=7&rm=3",
     category: "Headset",
   },
   {
     id: "5",
     name: "Kids' Mufflers",
-    image: "https://rukminim2.flixcart.com/image/1200/1239/xif0q/kids-muffler/e/6/z/12-18-months-pl-02-peach-01-zacharias-original-imaggzgveh8gdeb9.jpeg?q=60",
+    image:
+      "https://rukminim2.flixcart.com/image/1200/1239/xif0q/kids-muffler/e/6/z/12-18-months-pl-02-peach-01-zacharias-original-imaggzgveh8gdeb9.jpeg?q=60",
     category: "Accessories",
   },
   {
@@ -94,13 +106,15 @@ export const popularProducts = [
   {
     id: "7",
     name: "OnePlus Headset",
-    image: "https://tse3.mm.bing.net/th/id/OIP.0URO7YB-HRE9RP4ETTlpVQHaFj?cb=ucfimg2&ucfimg=1&w=630&h=473&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image:
+      "https://tse3.mm.bing.net/th/id/OIP.0URO7YB-HRE9RP4ETTlpVQHaFj?cb=ucfimg2&ucfimg=1&w=630&h=473&rs=1&pid=ImgDetMain&o=7&rm=3",
     category: "Headset",
   },
   {
     id: "8",
     name: "Kids' Mufflers",
-    image: "https://rukminim2.flixcart.com/image/1200/1239/xif0q/kids-muffler/e/6/z/12-18-months-pl-02-peach-01-zacharias-original-imaggzgveh8gdeb9.jpeg?q=60",
+    image:
+      "https://rukminim2.flixcart.com/image/1200/1239/xif0q/kids-muffler/e/6/z/12-18-months-pl-02-peach-01-zacharias-original-imaggzgveh8gdeb9.jpeg?q=60",
     category: "Accessories",
   },
   {
@@ -126,13 +140,13 @@ export const discoverMoreData = [
   { id: "12", title: "Water bottle" },
 ];
 
-
 // dummy data for search results products
 export const SearchResultproducts = [
   {
     id: "1",
     title: "MOTOROLA g35 5G (Midnight Black, 128 GB)",
-    image: "https://tse3.mm.bing.net/th/id/OIP.Onr8BzoADBUDbzPrIJ6QYAHaHa?cb=ucfimg2&ucfimg=1&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image:
+      "https://tse3.mm.bing.net/th/id/OIP.Onr8BzoADBUDbzPrIJ6QYAHaHa?cb=ucfimg2&ucfimg=1&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3",
     rating: 4.3,
     ratingCount: "1,12,529",
     assured: true,
@@ -147,7 +161,8 @@ export const SearchResultproducts = [
   {
     id: "2",
     title: "SAMSUNG Galaxy F15 5G (Groovy Violet, 128 GB)",
-    image: "https://images.samsung.com/is/image/samsung/p6pim/in/sm-e156blvdins/gallery/in-galaxy-f15-5g-4gb-memory-sm-e156blvdins-543082864?$650_519_PNG$",
+    image:
+      "https://images.samsung.com/is/image/samsung/p6pim/in/sm-e156blvdins/gallery/in-galaxy-f15-5g-4gb-memory-sm-e156blvdins-543082864?$650_519_PNG$",
     rating: 4.4,
     ratingCount: "89,340",
     assured: true,
@@ -177,7 +192,8 @@ export const SearchResultproducts = [
   {
     id: "4",
     title: "realme Narzo 60x 5G (Nebula Purple, 128 GB)",
-    image: "https://www.mobiledokan.com/media/realme-15-pro-silk-purple-official.webp",
+    image:
+      "https://www.mobiledokan.com/media/realme-15-pro-silk-purple-official.webp",
     rating: 4.1,
     ratingCount: "76,845",
     assured: false,
@@ -192,7 +208,8 @@ export const SearchResultproducts = [
   {
     id: "5",
     title: "POCO M6 Pro 5G (Power Black, 128 GB)",
-    image: "https://cdn.zeebiz.com/sites/default/files/2023/09/08/259800-pocom6pro5greview.jpg?im=FitAndFill=(1200,900)",
+    image:
+      "https://cdn.zeebiz.com/sites/default/files/2023/09/08/259800-pocom6pro5greview.jpg?im=FitAndFill=(1200,900)",
     rating: 4.3,
     ratingCount: "98,120",
     assured: true,
@@ -207,7 +224,8 @@ export const SearchResultproducts = [
   {
     id: "6",
     title: "iQOO Z6 Lite 5G (Mystic Night, 128 GB)",
-    image: "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1724238947656/1ba3fabf27fd977e810b8d6d7aeff84c.png",
+    image:
+      "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1724238947656/1ba3fabf27fd977e810b8d6d7aeff84c.png",
     rating: 4.0,
     ratingCount: "65,432",
     assured: false,
@@ -220,7 +238,6 @@ export const SearchResultproducts = [
     warranty: "1 year warranty by iQOO",
   },
 ];
-
 
 // header filter options
 export const filters = [
@@ -254,19 +271,15 @@ export const brands = [
     id: "4",
     name: "Samsung",
     logo: "https://th.bing.com/th/id/OIP.QefPdoXRvLTpTSUSmnmp3wHaHa?o=7&cb=ucfimg2&rm=3&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
-  }
+  },
 ];
-
-
-
 
 // fresh product list [animated flatList component]
 export const freshSelectionProducts = [
   {
     id: "1",
     title: "Zixer High Tops For Men",
-    image:
-      "https://images.unsplash.com/photo-1549298916-b41d501d3772",
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772",
     rating: 3.8,
     originalPrice: 2999,
     sellingPrice: 769,
@@ -275,8 +288,7 @@ export const freshSelectionProducts = [
   {
     id: "2",
     title: "Zixer Mens Trekking Shoes",
-    image:
-      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
+    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
     rating: 3.6,
     originalPrice: 2999,
     sellingPrice: 769,
@@ -285,8 +297,7 @@ export const freshSelectionProducts = [
   {
     id: "3",
     title: "Zixer Chunky Colors Sneakers",
-    image:
-      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
+    image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
     rating: 3.8,
     originalPrice: 2999,
     sellingPrice: 769,
@@ -294,11 +305,10 @@ export const freshSelectionProducts = [
   },
 ];
 
+export const AdvertisementBannerImage =
+  "https://static.vecteezy.com/system/resources/previews/002/006/774/large_2x/paper-art-shopping-online-on-smartphone-and-new-buy-sale-promotion-backgroud-for-banner-market-ecommerce-free-vector.jpg";
 
-export const AdvertisementBannerImage ="https://static.vecteezy.com/system/resources/previews/002/006/774/large_2x/paper-art-shopping-online-on-smartphone-and-new-buy-sale-promotion-backgroud-for-banner-market-ecommerce-free-vector.jpg"
-
-
-// top influncer 
+// top influncer
 export const influencerData = [
   {
     id: "1",
@@ -350,5 +360,34 @@ export const influencerData = [
     products: 1,
   },
 ];
+
+export const HeaderAdvertisment = {
+  title: "Zixer High Tops For Men",
+  image: "https://images.unsplash.com/photo-1549298916-b41d501d3772",
+  rating: 3.8,
+  originalPrice: 2999,
+  sellingPrice: 769,
+  discountPercent: 74,
+};
+
+// ============================product detail data=================================
+
+// images for crousel 
+
+export const DummyImages=[
+  "https://images.unsplash.com/photo-1549298916-b41d501d3772",
+  "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
+  "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
+  "https://tse3.mm.bing.net/th/id/OIP.Onr8BzoADBUDbzPrIJ6QYAHaHa?cb=ucfimg2&ucfimg=1&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3",
+]
+
+// data where user select items color
+
+export const SelectColor = [
+  { id: "1", title: "Midnight Black", image: "https://images.unsplash.com/photo-1549298916-b41d501d3772" },
+  { id: "2", title: "Ocean Blue", image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77" },
+  { id: "3", title: "Sunset Orange", image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" }
+];
+
 
 

@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, View } from "react-native";
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { RFValue } from "react-native-responsive-fontsize";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SearchInput from "./molecules/SearchInput";
@@ -13,6 +13,8 @@ import {
   trendingSearches,
   popularProducts,
   discoverMoreData,
+  HeaderAdvertisment,
+  DummyImages,
 } from "../../utils/searchData";
 import DiscoverChip from "./atoms/DiscoverChip";
 import Icons from "@/src/components/atoms/Icons";
@@ -20,9 +22,8 @@ import { navigate } from "@/src/navigation/NavigationUtils";
 import { useDebounce } from "@/src/hooks/useDebounce";
 import { useSearchSuggestion } from "./api/useSearchSuggestion";
 import SearchSuggestionList from "./organisms/SearchSuggestionList";
-import InfluencerCarousel from "@/src/components/organisms/InfluencerCarousel";
-
-
+import HeaderAdvertisement from "../../components/organisms/HeaderAdvertisement";
+import ImageCarousel from "@/src/components/organisms/ScrollImages/ImageCarousel";
 
 const SearchScreen = () => {
   const [search, setSearch] = useState("");
@@ -34,21 +35,21 @@ const SearchScreen = () => {
     console.info(`selected item ${item.title}`);
   };
 
- const callSearchAPI=()=>{
-  if(search.trim().length>0){
-    navigate("SearchResult",{query:search})
-  }
- }
-  
+  const callSearchAPI = () => {
+    if (search.trim().length > 0) {
+      navigate("SearchResult", { query: search });
+    }
+  };
+
   return (
-    <View style={[{ flex: 1 },search?{backgroundColor:"#FFF"}:null]} >
+    <View style={[{ flex: 1 }, search ? { backgroundColor: "#FFF" } : null]}>
       <SearchInput
         value={search}
         onChangeText={setSearch}
-        onCameraPress={() => navigate("SearchResult")}
+        onCameraPress={() => navigate("ProductDetail")}
         onSubmit={callSearchAPI}
       />
-      
+
       {search.length > 0 && (
         <SearchSuggestionList
           loading={loading}
@@ -63,7 +64,7 @@ const SearchScreen = () => {
           }}
         />
       )}
-      
+
       {search.length === 0 && (
         <FlatList
           data={popularProducts}
@@ -109,6 +110,7 @@ const SearchScreen = () => {
               </View>
 
               <SectionTitle title="Popular Products" />
+              
               
             </>
           }

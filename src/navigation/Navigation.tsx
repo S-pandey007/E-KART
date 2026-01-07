@@ -15,6 +15,7 @@ import EmailVerification from "../modules/email-Verification";
 import Registration from "../modules/registration";
 import SearchScreen from "../modules/Search";
 import SearchResult from "../modules/SearchResult";
+import ProductDetail from "../modules/Product_Detail";
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,7 @@ const Navigation: FC = () => {
         <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen name="Search" component={SearchScreen}/>
         <Stack.Screen name="SearchResult" component={SearchResult}/>
+        <Stack.Screen name="ProductDetail" component={ProductDetail}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,29 +1,40 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ViewStyle } from 'react-native'
 import React from 'react'
 import PriceText from '../atoms/PriceText';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { TextStyle } from 'react-native';
 
 type Props={
     sellingPrice:number;
     originalPrice:number;
     discountPercentage?:number;
     wowPrice?:number;
+   
+    containerStyle?: ViewStyle;
+  sellingTextStyle?: TextStyle;
+  originalTextStyle?: TextStyle;
+  discountTextStyle?: TextStyle;
+  wowTextStyle?: TextStyle;
 }
 
 const PriceInfo:React.FC<Props> = ({
-    sellingPrice,originalPrice,discountPercentage,wowPrice
+    sellingPrice,originalPrice,discountPercentage,wowPrice,containerStyle,
+  sellingTextStyle,
+  originalTextStyle,
+  discountTextStyle,
+  wowTextStyle,
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,containerStyle]}>
       
       {/* price row  */}
       <View style={styles.row}>
-        <PriceText value={`₹${sellingPrice}`} style={styles.selling}/>
-        <PriceText value={`₹${originalPrice}`} style={styles.original}/>
+        <PriceText value={`₹${sellingPrice}`} style={[styles.selling,sellingTextStyle]}/>
+        <PriceText value={`₹${originalPrice}`} style={[styles.original,originalTextStyle]}/>
 
         {
             discountPercentage &&(
-                <Text style={styles.discount}>
+                <Text style={[styles.discount,discountTextStyle]}>
                     {discountPercentage}% off
                 </Text>
             )
@@ -33,7 +44,7 @@ const PriceInfo:React.FC<Props> = ({
       {/* wow price  */}
       {
         wowPrice &&(
-            <Text style={styles.wowText}>
+            <Text style={[styles.wowText,wowTextStyle]}>
                 WOW Deal ₹{wowPrice}
             </Text>
         )
