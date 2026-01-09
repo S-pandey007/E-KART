@@ -390,4 +390,49 @@ export const SelectColor = [
 ];
 
 
+// ======================================================
+// user's address data 
+
+export const UsersAddress = [
+  {
+    "id":"1",
+    "name": "Rahul Sharma",
+    "phone": "+91 9876543210",
+    "email": "rahul.sharma@example.com",
+    "addressLine1": "Flat 302, Green Residency",
+    "addressLine2": "Near City Mall",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "postalCode": "500081",
+    "country": "India",
+    "landmark": "Opposite Metro Station"
+  },
+  {
+    "id":"2",
+    "name": "Priya Mehta",
+    "phone": "+91 9123456780",
+    "email": "priya.mehta@example.com",
+    "addressLine1": "House No. 45, Rose Villa",
+    "addressLine2": "Sector 21",
+    "city": "Gurgaon",
+    "state": "Haryana",
+    "postalCode": "122016",
+    "country": "India",
+    "landmark": "Near HUDA Market"
+  },
+  {
+    "id":"3",
+    "name": "Arjun Patel",
+    "phone": "+91 9988776655",
+    "email": "arjun.patel@example.com",
+    "addressLine1": "B-12, Sunshine Apartments",
+    "addressLine2": "MG Road",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "postalCode": "400067",
+    "country": "India",
+    "landmark": "Close to Oberoi Mall"
+  }
+]
+
 

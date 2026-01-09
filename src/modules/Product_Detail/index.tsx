@@ -11,6 +11,8 @@ import { RFValue } from "react-native-responsive-fontsize";
 import PurchaseButton from "./molecules/PurchaseButton";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PriceInfo from "../SearchResult/molecule/PriceInfo";
+import ProductDescription from "./molecules/ProductDescription";
+import DeliveryDetail from "./organisms/DeliveryDetail";
 
 const ProductDetail = () => {
   const [search, setSearch] = useState("");
@@ -70,6 +72,12 @@ const ProductDetail = () => {
                   discountTextStyle={{ fontSize: RFValue(18) }}
                   containerStyle={{ paddingHorizontal: RFValue(14),paddingVertical:RFValue(10) }}
                 />
+
+                {/* product description  */}
+                <ProductDescription/>
+
+                {/* delivery deatails */}
+                <DeliveryDetail/>
               </>
             }
           />
