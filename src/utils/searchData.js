@@ -396,16 +396,30 @@ export const SelectColor = [
 export const UsersAddress = [
   {
     "id":"1",
+    // personal details
     "name": "Rahul Sharma",
+
+    // contact details
     "phone": "+91 9876543210",
+    "alternatePhone": "+91 9123456789",
     "email": "rahul.sharma@example.com",
+    
+    // address details
+    "addressType": "HOME",
     "addressLine1": "Flat 302, Green Residency",
     "addressLine2": "Near City Mall",
+    "landmark": "Opposite Metro Station",
+
+    // location details
     "city": "Hyderabad",
     "state": "Telangana",
-    "postalCode": "500081",
     "country": "India",
-    "landmark": "Opposite Metro Station"
+    "postalCode": "500081",
+
+
+    // only when user order not for anyone else.
+    "latitude": 17.4425,
+    "longitude": 78.3910
   },
   {
     "id":"2",

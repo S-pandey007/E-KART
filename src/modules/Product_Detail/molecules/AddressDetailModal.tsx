@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   FlatList,
   Modal,
   Pressable,
@@ -7,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { memo, useState } from "react";
+import React, { memo, use, useState, useEffect } from "react";
 import Icons from "@/src/components/atoms/Icons";
 import { RFValue } from "react-native-responsive-fontsize";
 import SectionTitle from "../../Search/atoms/SectionTitle";
@@ -18,32 +19,70 @@ import UserAddressLayout from "../atoms/UserAddressLayout";
 import { UsersAddress } from "@/src/utils/searchData";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ModifyAddressModal from "../atoms/ModifyAddressModal";
+import AddUsersAddress from "../organisms/addAddress/AddUsersAddress";
+import { useCurrentLocation } from "@/src/utils/GeoLocation";
+import { any } from "zod";
 
 type Props = {
   isVisible: boolean;
   onClose: () => void;
 };
 const AddressDetailModal: React.FC<Props> = ({ isVisible, onClose }) => {
-  
-  const [showModify,setShowModify] = useState(false)
-  const [selectedAddress,setSelectedAddress] = useState<any>(null);
-    const insets = useSafeAreaInsets();
-  const handleModifyPress =(item:any)=>{
+  const [showModify, setShowModify] = useState(false);
+  const [addAddressModal, setAddAddressModal] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState<any>(null);
+  const [addresses, setAddresses] = useState(UsersAddress);
+
+  const { address, loading, getCurrentAddress } = useCurrentLocation();
+
+  const insets = useSafeAreaInsets();
+  const handleModifyPress = (item: any) => {
     setSelectedAddress(item);
-    setShowModify(true)
-  }
+    setShowModify(true);
+  };
 
   const handleEdit = () => {
     console.log("Edit address:", selectedAddress);
+
     setShowModify(false);
   };
 
   const handleDelete = () => {
-    console.log("Delete address:", selectedAddress);
+    setAddresses((prev) =>
+      prev.filter((item) => item.id !== selectedAddress.id),
+    );
+    setSelectedAddress(null);
     setShowModify(false);
   };
 
+  const fetchCurrentAddress = () => {
+    if (getCurrentAddress) {
+      getCurrentAddress();
+    }
 
+    const currentAddress = {
+      id: Date.now().toString(),
+      name: "Current Location",
+      phone: "N/A",
+      alternatePhone: "N/A",
+      email: "N/A",
+      addressLine1: address
+        ? address.fullAddress
+        : "Fetching current location...",
+      addressLine2: "",
+      landmark: "",
+      city: address ? address.city : "",
+      district: address ? address.district : "",
+      state: address ? address.state : "",
+      postalCode: address ? address.pinCode : "",
+      country: address ? address.country : "",
+    };
+
+    if (address) setAddresses((prev: any) => [currentAddress, ...prev]);
+  };
+  useEffect(() => {
+    console.log("Current Address:", address);
+  }, [address]);
 
   return (
     <View>
@@ -72,14 +111,27 @@ const AddressDetailModal: React.FC<Props> = ({ isVisible, onClose }) => {
             <SectionTitle title="Select delivery address" />
 
             {/* use currect location */}
-            <TouchableOpacity style={styles.locationContainer}>
-              <Icons
-                name="crosshairs-gps"
-                iconFamily="MaterialCommunityIcons"
-                size={RFValue(25)}
-                color="#125feeff"
-              />
-              <Text style={styles.locationText}>Use my current location</Text>
+            <TouchableOpacity
+              style={styles.locationContainer}
+              onPress={() => fetchCurrentAddress()}
+            >
+              {!loading && (
+                <Icons
+                  name="crosshairs-gps"
+                  iconFamily="MaterialCommunityIcons"
+                  size={RFValue(25)}
+                  color="#125feeff"
+                />
+              )}
+              {loading ? (
+                <ActivityIndicator
+                  style={styles.locationIndicator}
+                  size="small"
+                  color="#125feeff"
+                />
+              ) : (
+                <Text style={styles.locationText}>Use my current location</Text>
+              )}
             </TouchableOpacity>
 
             {/* dot line component  */}
@@ -92,7 +144,10 @@ const AddressDetailModal: React.FC<Props> = ({ isVisible, onClose }) => {
             {/* saved address heading && add new option  */}
             <View style={styles.savedAddressContainer}>
               <Text style={styles.savedAddressText}>Saved addresses</Text>
-              <Pressable style={styles.addNewAddressContainer}>
+              <Pressable
+                style={styles.addNewAddressContainer}
+                onPress={() => setAddAddressModal(true)}
+              >
                 <Icons
                   name="plus"
                   iconFamily="MaterialCommunityIcons"
@@ -105,7 +160,7 @@ const AddressDetailModal: React.FC<Props> = ({ isVisible, onClose }) => {
 
             {/* user's saved addres list  */}
             <FlatList
-              data={UsersAddress}
+              data={addresses}
               keyExtractor={(item) => item.id}
               renderItem={({ item, index }) => (
                 <UserAddressLayout
@@ -113,17 +168,22 @@ const AddressDetailModal: React.FC<Props> = ({ isVisible, onClose }) => {
                   name={item.name}
                   address={item.addressLine1}
                   currentAddress={false}
-                  openEditModel={()=>handleModifyPress(item)}
+                  openEditModel={() => handleModifyPress(item)}
                 />
               )}
               showsVerticalScrollIndicator={false}
             />
 
             <ModifyAddressModal
-            isVisible={showModify}
-            onClose={()=>setShowModify(false)}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
+              isVisible={showModify}
+              onClose={() => setShowModify(false)}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
+
+            <AddUsersAddress
+              isVisible={addAddressModal}
+              onClose={() => setAddAddressModal(false)}
             />
           </View>
         </View>
@@ -183,5 +243,8 @@ const styles = StyleSheet.create({
   addNewAddressText: {
     fontFamily: FONTS.BOLD,
     color: "#2b73f8ff",
+  },
+  locationIndicator: {
+    marginLeft: RFValue(130),
   },
 });
