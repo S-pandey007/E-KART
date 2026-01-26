@@ -1,3 +1,5 @@
+import { ScrollableOptionsIcons } from "@/images/productDetails";
+
 export const recentSearches = [
   {
     id: "1",
@@ -303,6 +305,33 @@ export const freshSelectionProducts = [
     sellingPrice: 769,
     discountPercent: 74,
   },
+  {
+    id: "4",
+    title: "Zixer Chunky Colors Sneakers",
+    image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
+    rating: 3.8,
+    originalPrice: 2999,
+    sellingPrice: 769,
+    discountPercent: 74,
+  },
+  {
+    id: "5",
+    title: "Zixer Chunky Colors Sneakers",
+    image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
+    rating: 3.8,
+    originalPrice: 2999,
+    sellingPrice: 769,
+    discountPercent: 74,
+  },
+  {
+    id: "6",
+    title: "Zixer Chunky Colors Sneakers",
+    image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
+    rating: 3.8,
+    originalPrice: 2999,
+    sellingPrice: 769,
+    discountPercent: 74,
+  },
 ];
 
 export const AdvertisementBannerImage =
@@ -448,5 +477,29 @@ export const UsersAddress = [
     "landmark": "Close to Oberoi Mall"
   }
 ]
+
+// product detail more option chips dummy data
+export const ScrollableOptionsData = [
+  {
+    id: "1",
+    label: "High Quality",
+    icon: ScrollableOptionsIcons.highQality,
+  },
+  {
+    id: "2",
+    label: "Popular Brands",
+    icon: ScrollableOptionsIcons.populartBrand,
+  },
+  {
+    id: "3",
+    label: "Great Offers",
+    icon: ScrollableOptionsIcons.hotPrice,
+  },
+  {
+    id: "4",
+    label: "Easy Returns",
+    icon: ScrollableOptionsIcons.easyReturn,
+  },
+];
 
 

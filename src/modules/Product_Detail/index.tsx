@@ -13,6 +13,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import PriceInfo from "../SearchResult/molecule/PriceInfo";
 import ProductDescription from "./molecules/ProductDescription";
 import DeliveryDetail from "./organisms/DeliveryDetail";
+import SimilarProducts from "./organisms/SimilarProducts";
+import ExploreMore from "./organisms/ExploreMore";
+import Review from "../Review";
 
 const ProductDetail = () => {
   const [search, setSearch] = useState("");
@@ -70,14 +73,26 @@ const ProductDetail = () => {
                   sellingTextStyle={{ fontSize: RFValue(20) }}
                   originalTextStyle={{ fontSize: RFValue(15) }}
                   discountTextStyle={{ fontSize: RFValue(18) }}
-                  containerStyle={{ paddingHorizontal: RFValue(14),paddingVertical:RFValue(10) }}
+                  containerStyle={{
+                    paddingHorizontal: RFValue(14),
+                    paddingVertical: RFValue(10),
+                  }}
                 />
 
                 {/* product description  */}
-                <ProductDescription/>
+                <ProductDescription />
 
                 {/* delivery deatails */}
-                <DeliveryDetail/>
+                <DeliveryDetail />
+
+                {/* similar products  */}
+                <SimilarProducts />
+
+                {/* explore more like this  */} 
+                <ExploreMore/>
+
+                {/* rating and reviews  */}
+                <Review/>
               </>
             }
           />

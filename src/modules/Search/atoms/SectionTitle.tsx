@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TextStyle, View } from 'react-native'
 import React from 'react'
 import { RFValue } from 'react-native-responsive-fontsize';
 import { FONTS } from '@/src/theme/font/fonts';
@@ -6,14 +6,15 @@ import { FONTS } from '@/src/theme/font/fonts';
 type Props={
     title:string;
     rightText?:string;
-    onPressRight?:()=>void
+    onPressRight?:()=>void;
+    titleStyle?:TextStyle;
 }
 const SectionTitle:React.FC<Props> = ({
-    title,rightText,onPressRight
+    title,rightText,onPressRight,titleStyle
 }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={[styles.title,titleStyle]}>{title}</Text>
 
       {
         rightText &&(

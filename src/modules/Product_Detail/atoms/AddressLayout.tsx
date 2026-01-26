@@ -10,7 +10,6 @@ import Icons from "@/src/components/atoms/Icons";
 import { FONTS } from "@/src/theme/font/fonts";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Colors } from "@/src/utils/Constants";
-import AddressDetailModal from "../molecules/AddressDetailModal";
 
 type Props = {
   icon: string;
@@ -26,9 +25,7 @@ const AddressLayout: React.FC<Props> = ({
   onPress,
   containerStyle,
 }) => {
-   
   return (
- 
     <TouchableOpacity
       onPress={onPress}
       disabled={!onPress}
@@ -54,7 +51,6 @@ const AddressLayout: React.FC<Props> = ({
         size={RFValue(15)}
       />
     </TouchableOpacity>
-
   );
 };
 
