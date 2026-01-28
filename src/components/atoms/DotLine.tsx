@@ -6,11 +6,12 @@ type Props={
     color:string;
     thickness:number;
     style?:ViewStyle;
+    borderStyle?:'dotted'|'solid'
 }
-const DotLine:React.FC<Props> = ({color,thickness,style}) => {
+const DotLine:React.FC<Props> = ({color,thickness,style,borderStyle}) => {
   return (
     <View
-    style={[styles.line,style,{borderBottomColor:color,borderBottomWidth:thickness}]}
+    style={[styles.line,style,{borderBottomColor:color,borderBottomWidth:thickness,borderStyle}]}
     />
   )
 }

@@ -1,4 +1,5 @@
 import { ScrollableOptionsIcons } from "@/images/productDetails";
+import { id } from "zod/v4/locales";
 
 export const recentSearches = [
   {
@@ -401,82 +402,92 @@ export const HeaderAdvertisment = {
 
 // ============================product detail data=================================
 
-// images for crousel 
+// images for crousel
 
-export const DummyImages=[
+export const DummyImages = [
   "https://images.unsplash.com/photo-1549298916-b41d501d3772",
   "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
   "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
   "https://tse3.mm.bing.net/th/id/OIP.Onr8BzoADBUDbzPrIJ6QYAHaHa?cb=ucfimg2&ucfimg=1&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3",
-]
+];
 
 // data where user select items color
 
 export const SelectColor = [
-  { id: "1", title: "Midnight Black", image: "https://images.unsplash.com/photo-1549298916-b41d501d3772" },
-  { id: "2", title: "Ocean Blue", image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77" },
-  { id: "3", title: "Sunset Orange", image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" }
+  {
+    id: "1",
+    title: "Midnight Black",
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772",
+  },
+  {
+    id: "2",
+    title: "Ocean Blue",
+    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
+  },
+  {
+    id: "3",
+    title: "Sunset Orange",
+    image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
+  },
 ];
 
-
 // ======================================================
-// user's address data 
+// user's address data
 
 export const UsersAddress = [
   {
-    "id":"1",
+    id: "1",
     // personal details
-    "name": "Rahul Sharma",
+    name: "Rahul Sharma",
 
     // contact details
-    "phone": "+91 9876543210",
-    "alternatePhone": "+91 9123456789",
-    "email": "rahul.sharma@example.com",
-    
+    phone: "+91 9876543210",
+    alternatePhone: "+91 9123456789",
+    email: "rahul.sharma@example.com",
+
     // address details
-    "addressType": "HOME",
-    "addressLine1": "Flat 302, Green Residency",
-    "addressLine2": "Near City Mall",
-    "landmark": "Opposite Metro Station",
+    addressType: "HOME",
+    addressLine1: "Flat 302, Green Residency",
+    addressLine2: "Near City Mall",
+    landmark: "Opposite Metro Station",
 
     // location details
-    "city": "Hyderabad",
-    "state": "Telangana",
-    "country": "India",
-    "postalCode": "500081",
-
+    city: "Hyderabad",
+    state: "Telangana",
+    country: "India",
+    postalCode: "500081",
 
     // only when user order not for anyone else.
-    "latitude": 17.4425,
-    "longitude": 78.3910
+    latitude: 17.4425,
+    longitude: 78.391,
   },
   {
-    "id":"2",
-    "name": "Priya Mehta",
-    "phone": "+91 9123456780",
-    "email": "priya.mehta@example.com",
-    "addressLine1": "House No. 45, Rose Villa",
-    "addressLine2": "Sector 21",
-    "city": "Gurgaon",
-    "state": "Haryana",
-    "postalCode": "122016",
-    "country": "India",
-    "landmark": "Near HUDA Market"
+    id: "2",
+    name: "Priya Mehta",
+    phone: "+91 9123456780",
+    email: "priya.mehta@example.com",
+    addressLine1: "House No. 45, Rose Villa",
+    addressLine2: "Sector 21",
+    city: "Gurgaon",
+    state: "Haryana",
+    postalCode: "122016",
+    country: "India",
+    landmark: "Near HUDA Market",
   },
   {
-    "id":"3",
-    "name": "Arjun Patel",
-    "phone": "+91 9988776655",
-    "email": "arjun.patel@example.com",
-    "addressLine1": "B-12, Sunshine Apartments",
-    "addressLine2": "MG Road",
-    "city": "Mumbai",
-    "state": "Maharashtra",
-    "postalCode": "400067",
-    "country": "India",
-    "landmark": "Close to Oberoi Mall"
-  }
-]
+    id: "3",
+    name: "Arjun Patel",
+    phone: "+91 9988776655",
+    email: "arjun.patel@example.com",
+    addressLine1: "B-12, Sunshine Apartments",
+    addressLine2: "MG Road",
+    city: "Mumbai",
+    state: "Maharashtra",
+    postalCode: "400067",
+    country: "India",
+    landmark: "Close to Oberoi Mall",
+  },
+];
 
 // product detail more option chips dummy data
 export const ScrollableOptionsData = [
@@ -502,4 +513,144 @@ export const ScrollableOptionsData = [
   },
 ];
 
+// review images collections
+export const ReviewImages = [
+  {uri:"https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg",caption: "Great quality 🔥"},
+  {uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJbaBw2dyYma9Rl8IfxBL-0RBZYwzD5f1Fcg&s",caption: "Great quality 🔥"},
+  {uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGTIHPz2zWOovbM2IJ6JT_hzm26icllgFQyg&s",caption: "Great quality 🔥"},
+  {uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOzb3jTRVr_AIOPlZ04UVdwk8Xfri9ps05LQ&s",caption: "Great quality 🔥"},
+  {uri:"https://www.shutterstock.com/image-photo/saree-photography-fashion-model-260nw-2195825443.jpg",caption: "Great quality 🔥"},
+  {uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk46KkkvPU44-bElYmP8akiDfaVhVkwoGbBA&s",caption: "Great quality 🔥"},
+  {uri:"https://i.pinimg.com/videos/thumbnails/originals/74/13/9e/74139ebf1d9650c70cd356ad46fc2ad7.0000000.jpg",caption: "Great quality 🔥"},
+  {uri:"https://i.pinimg.com/videos/thumbnails/originals/74/13/9e/74139ebf1d9650c70cd356ad46fc2ad7.0000000.jpg",caption: "Great quality 🔥"},
+];
+
+
+// feature customer loved
+
+export const FeatureCustomerLoved=[
+  {id:"1",label:"Overall"},
+  {id:"2",label:"Colour"},
+  {id:"3",label:"Style"},
+  {id:"4",label:"Comfort"},
+  {id:"5",label:"Terrific"},
+]
+
+
+// User reviews sorted by
+export const ReviewsSortedBy=[
+  {id:"1",label:"Most Helpful"},
+  {id:"2",label:"Latest"},
+  {id:"3",label:"Positive"},
+  {id:"4",label:"Negative"},
+]
+
+// overall product review card data
+export const OverAllProdctReview = [
+  {
+    id: "1",
+    ratingNumber: 5,
+    reviewTitle: "Excellent Product!",
+    reviewDate: "2026-01-15",
+    reviewText: "The build quality is amazing and it exceeded my expectations. Highly recommended!",
+    reviewerName: "Amit Sharma",
+    verifiedBuyer: true,
+    image:"https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg"
+  },
+  {
+    id: "2",
+    ratingNumber: 4,
+    reviewTitle: "Very Good",
+    reviewDate: "2026-01-10",
+    reviewText: "Works well overall, but the battery life could be better. Still worth the price.",
+    reviewerName: "Priya Verma",
+    verifiedBuyer: true,
+    image:"https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg"
+
+  },
+  {
+    id: "3",
+    ratingNumber: 3,
+    reviewTitle: "Average Experience",
+    reviewDate: "2026-01-05",
+    reviewText: "The product is okay, but I faced some minor issues with installation.",
+    reviewerName: "Rahul Mehta",
+    verifiedBuyer: false
+  },
+  {
+    id: "4",
+    ratingNumber: 2,
+    reviewTitle: "Not Satisfied",
+    reviewDate: "2025-12-28",
+    reviewText: "The item did not match the description and customer support was slow to respond.",
+    reviewerName: "Sneha Kapoor",
+    verifiedBuyer: true
+  },
+  {
+    id: "5",
+    ratingNumber: 1,
+    reviewTitle: "Terrible Quality",
+    reviewDate: "2025-12-20",
+    reviewText: "Stopped working within a week. Would not recommend.",
+    reviewerName: "Vikram Singh",
+    verifiedBuyer: false,
+    image:"https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg"
+
+  },
+  {
+    id: "6",
+    ratingNumber: 1,
+    reviewTitle: "Terrible Quality",
+    reviewDate: "2025-12-20",
+    reviewText: "Stopped working within a week. Would not recommend.",
+    reviewerName: "Vikram Singh",
+    verifiedBuyer: false,
+    image:"https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg"
+
+  },
+  {
+    id: "7",
+    ratingNumber: 1,
+    reviewTitle: "Terrible Quality",
+    reviewDate: "2025-12-20",
+    reviewText: "Stopped working within a week. Would not recommend.",
+    reviewerName: "Vikram Singh",
+    verifiedBuyer: false,
+    image:"https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg"
+
+  },
+  {
+    id: "8",
+    ratingNumber: 1,
+    reviewTitle: "Terrible Quality",
+    reviewDate: "2025-12-20",
+    reviewText: "Stopped working within a week. Would not recommend.",
+    reviewerName: "Vikram Singh",
+    verifiedBuyer: false,
+    // image:"https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg"
+
+  },
+  {
+    id: "9",
+    ratingNumber: 1,
+    reviewTitle: "Terrible Quality",
+    reviewDate: "2025-12-20",
+    reviewText: "Stopped working within a week. Would not recommend.",
+    reviewerName: "Vikram Singh",
+    verifiedBuyer: false,
+    image:"https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg"
+
+  },
+  {
+    id: "10",
+    ratingNumber: 1,
+    reviewTitle: "Terrible Quality",
+    reviewDate: "2025-12-20",
+    reviewText: "Stopped working within a week. Would not recommend.",
+    reviewerName: "Vikram Singh",
+    verifiedBuyer: false,
+    // image:"https://i.pinimg.com/736x/54/83/6f/54836fc167e7e99c69d51ed2c095ac6d.jpg"
+
+  }
+];
 

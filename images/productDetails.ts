@@ -9,3 +9,7 @@ export const ScrollableOptionsIcons={
     hotPrice:require('../assets/icons/product details Icos/hotprice.png'),
     easyReturn:require('../assets/icons/product details Icos/returnpurchase.png'),
 }
+
+export const reviewIcons={
+    verify:require('../assets/icons/review/verify.png'),
+}

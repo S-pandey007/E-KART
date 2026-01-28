@@ -16,6 +16,7 @@ import Registration from "../modules/registration";
 import SearchScreen from "../modules/Search";
 import SearchResult from "../modules/SearchResult";
 import ProductDetail from "../modules/Product_Detail";
+import AllReviews from "../modules/Review/organisms/AllReviews";
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,7 @@ const Navigation: FC = () => {
         <Stack.Screen name="Search" component={SearchScreen}/>
         <Stack.Screen name="SearchResult" component={SearchResult}/>
         <Stack.Screen name="ProductDetail" component={ProductDetail}/>
+        <Stack.Screen name="AllReviews" component={AllReviews}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import SectionTitle from '../Search/atoms/SectionTitle'
+import OverallRating from './molecules/OverallRating'
 
 const Review = () => {
   return (
     <View>
-      <Text>Review</Text>
+      <SectionTitle title='Ratings and reviews'/>
+      <OverallRating/>
     </View>
   )
 }
