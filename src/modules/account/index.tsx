@@ -1,48 +1,38 @@
-import { View, Text, TouchableOpacity, FlatList, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  FlatList,
+  ToastAndroid,
+} from "react-native";
 import React, { useEffect } from "react";
-import { useRoute } from "@react-navigation/native";
+import HeaderCard from "./atom/HeaderCard";
+import { SafeAreaView } from "react-native-safe-area-context";
+import OptionsCollection from "./molecules/OptionsCollection";
+import { scale } from "@/src/utils/Responsivess";
+import RecentlyViewedList from "./molecules/RecentlyViewedList";
+import AdvertisementBannerAtom from "@/src/components/atoms/AdvertisementBannerAtom";
+import { AdvertisementBannerImage } from "@/src/utils/searchData";
+import AccountSettingsList from "./molecules/AccountSettingsList";
+import { Colors } from "@/src/utils/Constants";
+import MyActivity from "./molecules/MyActivity";
 import { useAppDispatch, useAppSelector } from "@/src/store/reduxHook";
-import { getOrderByUserId } from "./api/api";
-import CustomSafeArea from "@/src/components/atoms/CustomSafeArea";
-import { orderStyles } from "@/src/styles/orderStyles";
-import LoginModal from "./molecules/LoginModal";
-import { formatDate } from "@/src/utils/Constants";
-import { navigate } from "@/src/navigation/NavigationUtils";
-import { logout } from "../login/api/api";
-import { ToastAndroid } from "react-native";
+import { FONTS } from "@/src/theme/font/fonts";
+import { RFValue } from "react-native-responsive-fontsize";
 import { clearCart } from "../cart/api/slice";
 import { setData } from "./api/slice";
+import { logout } from "../login/api/api";
+import { navigate } from "@/src/navigation/NavigationUtils";
+import LoggedOutState from "@/src/components/atoms/LoggedOutState";
+import { AccountIcons } from "@/images/productDetails";
 
 const Account = () => {
-  const route = useRoute();
-  const item = route?.params as any;
+  // fecth user from redux is user already login
+  const user = useAppSelector((state) => state.account.user);
   const dispatch = useAppDispatch();
-  const user = useAppSelector((state) => state.account.user) as any;
-  const [isVisible, setIsVisible] = React.useState(false);
-  const [orders, setOrders] = React.useState<any[]>([]);
 
-  const fetchOrders = async () => {
-    const data = await getOrderByUserId(user?._id);
-    if (data) {
-      setOrders(data);
-    }
-  };
-
-  useEffect(() => {
-    if (user) {
-      console.log("user from account", user.data.accessToken);
-      fetchOrders();
-    } else {
-      setOrders([]);
-    }
-  }, [user]);
-
-  useEffect(() => {
-    if (item?.isRefresh && user) {
-      fetchOrders();
-    }
-  }, [item]);
-
+  // function for handle logout logic
   const handleLogout = async () => {
     const result = await logout(user?.data.accessToken);
     console.log("logout result", result);
@@ -55,89 +45,70 @@ const Account = () => {
       ToastAndroid.show("Logout Failed", ToastAndroid.LONG);
     }
   };
-
-  const renderItem = ({ item }: any) => (
-    <View style={orderStyles.orderContainer}>
-      <Image
-        source={{ uri: item?.product?.image_uri }}
-        style={orderStyles.image}
-      />
-      <View style={orderStyles.orderDetails}>
-        <Text style={orderStyles.itemName}>{item?.product?.name}</Text>
-        <Text style={orderStyles.price}>{item?.product?.price}</Text>
-      </View>
-    </View>
-  );
-
   return (
-    <>
-      <CustomSafeArea>
-        <View style={orderStyles.container}>
-          <Text>{user ? user.data.userSafe.fullName : ""}</Text>
-          <View style={orderStyles.flexRow}>
-            <Text>
-              {user
-                ? user.data.userSafe.email
-                : "Please Login to see your orders"}
-            </Text>
-            {/* <TouchableOpacity style={orderStyles.btn} onPress={()=> setIsVisible(true)}>
-              <Text style={orderStyles.btnText}>{user?"Update":"Login"}</Text>
-            </TouchableOpacity> */}
-            <TouchableOpacity
-              style={orderStyles.btn}
-              onPress={() => {
-                if (user) {
-                  handleLogout();
-                } else {
-                  navigate("Login");
+    <SafeAreaView
+      edges={["top"]}
+      style={{ flex: 1, backgroundColor: Colors.primaryBG }}
+    >
+      <FlatList
+        data={[{ id: "dummy" }]}
+        keyExtractor={(item) => item.id}
+        renderItem={null}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={
+          <>
+            {/* Header */}
+            <View style={styles.headContainer}>
+              <HeaderCard
+                name={
+                  user ? user.data.userSafe.fullName : "Please Login or Signup"
                 }
-              }}
-            >
-              <Text style={orderStyles.btnText}>
-                {user ? "Logout" : "Login"}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+                email={user ? user.data.userSafe.email : ""}
+                btnText={user ? "Logout" : "Login"}
+                onPress={user ? () => handleLogout() : () => navigate("Login")}
+              />
+              {user && <OptionsCollection />}
+            </View>
+            {user ? (
+              <>
+                {/* Recently Viewed */}
+                <RecentlyViewedList />
 
-        <View style={orderStyles.listContainer}>
-          <Text style={orderStyles.heading}>Your Orders</Text>
-          <FlatList
-            data={orders}
-            keyExtractor={(item) => item?._id?.toString()}
-            renderItem={({ item }) => (
-              <View style={orderStyles.order}>
-                <FlatList
-                  data={item?.items}
-                  keyExtractor={(item, index) => index.toString()}
-                  renderItem={renderItem}
-                  scrollEnabled={false}
-                />
-                <Text style={orderStyles.address}>{item?.address}</Text>
-                <Text style={orderStyles.deliveryDate}>
-                  Delivery by:{formatDate(item?.deliveryDate)}
-                </Text>
-                <View style={orderStyles.statusContainer}>
-                  <Text style={orderStyles.statusText}>{item?.status}</Text>
-                </View>
-              </View>
+                {/* Sponsored Banner */}
+                <AdvertisementBannerAtom image={AdvertisementBannerImage} />
+
+                {/* Account Options */}
+                <AccountSettingsList />
+
+                {/* my activity  */}
+                <MyActivity />
+              </>
+            ) : (
+              <>
+                <LoggedOutState image={AccountIcons.userLogin} />
+              </>
             )}
-            ListEmptyComponent={
-              <View>
-                <Text style={orderStyles.emptyText}>
-                  {!user
-                    ? "Please login to see your orders."
-                    : "No orders found."}
-                </Text>
-              </View>
-            }
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
-      </CustomSafeArea>
-      <LoginModal onClose={() => setIsVisible(false)} visible={isVisible} />
-    </>
+          </>
+        }
+      />
+    </SafeAreaView>
   );
 };
 
 export default Account;
+
+const styles = StyleSheet.create({
+  headContainer: {
+    backgroundColor: "#FFF",
+    paddingVertical: scale(10),
+  },
+  loginAlertContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: scale(10),
+  },
+  loginAlertText: {
+    fontFamily: FONTS.MEDIUM,
+    fontSize: RFValue(16),
+  },
+});

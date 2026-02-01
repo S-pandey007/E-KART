@@ -13,3 +13,8 @@ export const ScrollableOptionsIcons={
 export const reviewIcons={
     verify:require('../assets/icons/review/verify.png'),
 }
+
+
+export const AccountIcons={
+    userLogin:require('../assets/icons/Userlogin.png')
+}

@@ -1,0 +1,141 @@
+import { View, Text, TouchableOpacity, FlatList, Image } from "react-native";
+import React, { useEffect } from "react";
+import { useRoute } from "@react-navigation/native";
+import { useAppDispatch, useAppSelector } from "@/src/store/reduxHook";
+import { getOrderByUserId } from "./api/api";
+import CustomSafeArea from "@/src/components/atoms/CustomSafeArea";
+import { orderStyles } from "@/src/styles/orderStyles";
+import LoginModal from "./molecules/LoginModal";
+import { formatDate } from "@/src/utils/Constants";
+import { navigate } from "@/src/navigation/NavigationUtils";
+import { logout } from "../login/api/api";
+import { ToastAndroid } from "react-native";
+import { clearCart } from "../cart/api/slice";
+import { setData } from "./api/slice";
+
+const Account = () => {
+  const route = useRoute();
+  const item = route?.params as any;
+  const dispatch = useAppDispatch();
+  const user = useAppSelector((state) => state.account.user) as any;
+  const [isVisible, setIsVisible] = React.useState(false);
+  const [orders, setOrders] = React.useState<any[]>([]);
+
+  const fetchOrders = async () => {
+    const data = await getOrderByUserId(user?._id);
+    if (data) {
+      setOrders(data);
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      console.log("user from account", user.data.accessToken);
+      fetchOrders();
+    } else {
+      setOrders([]);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (item?.isRefresh && user) {
+      fetchOrders();
+    }
+  }, [item]);
+
+  const handleLogout = async () => {
+    const result = await logout(user?.data.accessToken);
+    console.log("logout result", result);
+    if (result.success) {
+      ToastAndroid.show("Logout Successfull", ToastAndroid.LONG);
+      navigate("Home");
+      await dispatch(clearCart());
+      await dispatch(setData(null));
+    } else {
+      ToastAndroid.show("Logout Failed", ToastAndroid.LONG);
+    }
+  };
+
+  const renderItem = ({ item }: any) => (
+    <View style={orderStyles.orderContainer}>
+      <Image
+        source={{ uri: item?.product?.image_uri }}
+        style={orderStyles.image}
+      />
+      <View style={orderStyles.orderDetails}>
+        <Text style={orderStyles.itemName}>{item?.product?.name}</Text>
+        <Text style={orderStyles.price}>{item?.product?.price}</Text>
+      </View>
+    </View>
+  );
+
+  return (
+    <>
+      <CustomSafeArea>
+        {/* header user info and login/logout  */}
+        <View style={orderStyles.container}>
+          <Text>{user ? user.data.userSafe.fullName : ""}</Text>
+          <View style={orderStyles.flexRow}>
+            <Text>
+              {user
+                ? user.data.userSafe.email
+                : "Please Login to see your orders"}
+            </Text>
+            <TouchableOpacity
+              style={orderStyles.btn}
+              onPress={() => {
+                if (user) {
+                  handleLogout();
+                } else {
+                  navigate("Login");
+                }
+              }}
+            >
+              <Text style={orderStyles.btnText}>
+                {user ? "Logout" : "Login"}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={orderStyles.listContainer}>
+          <Text style={orderStyles.heading}>Your Orders</Text>
+          <FlatList
+            data={orders}
+            keyExtractor={(item) => item?._id?.toString()}
+            renderItem={({ item }) => (
+              <View style={orderStyles.order}>
+                <FlatList
+                  data={item?.items}
+                  keyExtractor={(item, index) => index.toString()}
+                  renderItem={renderItem}
+                  scrollEnabled={false}
+                />
+                <Text style={orderStyles.address}>{item?.address}</Text>
+                <Text style={orderStyles.deliveryDate}>
+                  Delivery by:{formatDate(item?.deliveryDate)}
+                </Text>
+                <View style={orderStyles.statusContainer}>
+                  <Text style={orderStyles.statusText}>{item?.status}</Text>
+                </View>
+              </View>
+            )}
+            ListEmptyComponent={
+              <View>
+                <Text style={orderStyles.emptyText}>
+                  {!user
+                    ? "Please login to see your orders."
+                    : "No orders found."}
+                </Text>
+              </View>
+            }
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
+      </CustomSafeArea>
+      <LoginModal onClose={() => setIsVisible(false)} visible={isVisible} />
+    </>
+  );
+};
+
+export default Account;
