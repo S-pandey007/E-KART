@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { scale } from "@/src/utils/Responsivess";
 import { RFValue } from "react-native-responsive-fontsize";
 import { FONTS } from "@/src/theme/font/fonts";
+import { navigate } from "@/src/navigation/NavigationUtils";
+import { Colors } from "@/src/utils/Constants";
 
 type Props = {
   image?: string;
@@ -20,6 +22,9 @@ const LoggedOutState: React.FC<Props> = ({
         style={styles.image}
       />
       <Text style={styles.text}>{text}</Text>
+      <TouchableOpacity onPress={()=>navigate("Login")} style={styles.btnContainer}>
+        <Text style={styles.btnText}>Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -47,4 +52,15 @@ const styles = StyleSheet.create({
     color: "#555",
     textAlign: "center",
   },
+  btnContainer:{
+    backgroundColor:Colors.primaryBG,
+    paddingVertical:scale(10),
+    paddingHorizontal:scale(20),
+    borderRadius:scale(10)
+  },
+  btnText:{
+    fontFamily:FONTS.MEDIUM,
+    fontSize:RFValue(14),
+    color:"#000"
+  }
 });

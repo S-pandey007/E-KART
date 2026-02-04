@@ -26,7 +26,7 @@ const SearchBar:FC<SearchBarProps>= ({cartLength}) => {
                 placeholderTextColor={"#666"}
             />
         </View>
-        <Icons name='heart-outline' size={24} iconFamily='Ionicons' color='#000'/>
+        {/* <Icons name='heart-outline' size={24} iconFamily='Ionicons' color='#000'/> */}
         <Pressable onPress={()=>navigate("Cart")}>
             <Icons name='cart-sharp' size={24} iconFamily='Ionicons' color='#000'/>
             {

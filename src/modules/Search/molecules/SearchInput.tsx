@@ -5,6 +5,11 @@ import { RFValue } from "react-native-responsive-fontsize";
 import { TextInput } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { goBack, navigate } from "@/src/navigation/NavigationUtils";
+import { Pressable } from "react-native";
+import { useAppSelector } from "@/src/store/reduxHook";
+import { selectTotalItemsCart } from "../../cart/api/slice";
+import { scale, scaleH, scaleW } from "@/src/utils/Responsivess";
+import { screenHeight, screenWidth } from "@/src/utils/Constants";
 
 type Props = {
   value: string;
@@ -23,6 +28,7 @@ const SearchInput: React.FC<Props> = ({
   placeholder = "Search",
 }) => {
   const hastText = value && value.trim().length > 0;
+  const count = useAppSelector(selectTotalItemsCart);
   return (
     <SafeAreaView edges={["top"]} style={styles.safeArea}>
       <View style={styles.container}>
@@ -30,7 +36,7 @@ const SearchInput: React.FC<Props> = ({
         <TouchableOpacity onPress={() => goBack()} style={styles.icon}>
           <Icons
             name="arrow-back"
-            size={RFValue(20)}
+            size={RFValue(23)}
             color="#333"
             iconFamily="Ionicons"
           />
@@ -76,6 +82,20 @@ const SearchInput: React.FC<Props> = ({
             />
           </TouchableOpacity>
         </View>
+
+        <Pressable onPress={() => navigate("Cart")}>
+          <Icons
+            name="cart-sharp"
+            size={24}
+            iconFamily="Ionicons"
+            color="#000"
+          />
+          {count > 0 && (
+            <View style={styles.badge}>
+              <Text style={styles.badgeText}>{count}</Text>
+            </View>
+          )}
+        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -90,26 +110,44 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: RFValue(12),
-    paddingVertical: RFValue(8),
+    justifyContent: "space-between",
+    paddingHorizontal: scale(16),
+    paddingVertical: scale(8),
     backgroundColor: "#dbeafe",
   },
   icon: {
-    marginRight: RFValue(8),
+    marginRight: scale(8),
   },
   inputWrapper: {
-    flex: 1,
+    // flex: 1,
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#FFF",
-    borderRadius: RFValue(25),
-    paddingHorizontal: RFValue(12),
-    height: RFValue(40),
+    borderRadius:scale(25),
+    paddingHorizontal: scale(12),
+    width:scale(screenWidth*0.78),
+    height: scaleH(screenHeight*0.057),
   },
   input: {
     flex: 1,
     fontSize: RFValue(14),
-    marginHorizontal: RFValue(8),
+    marginHorizontal: scale(8),
     color: "#000",
+  },
+  badge: {
+    position: "absolute",
+    top: -5,
+    right: -6,
+    backgroundColor: "red",
+    borderRadius: scale(10),
+    width: scaleW(16),
+    height: scaleH(16),
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  badgeText: {
+    color: "#fff",
+    fontSize: RFValue(8),
+    fontWeight: "bold",
   },
 });

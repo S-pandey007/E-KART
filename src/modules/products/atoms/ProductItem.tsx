@@ -1,26 +1,43 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { memo } from "react";
 import { RFValue } from "react-native-responsive-fontsize";
 import UniversalAddItem from "./UniversalAddItem";
+import TextBadge from "@/src/components/atoms/TextBadge";
+import { navigate } from "@/src/navigation/NavigationUtils";
+import { useAppDispatch } from "@/src/store/reduxHook";
+import { setCurrentOpenedProductId } from "../../Product_Detail/api/slice";
+import { getProductDetails } from "../../Product_Detail/api/actions";
 
 const ProductItem = ({ item, isOdd }: any) => {
+  const dispatch = useAppDispatch();
+  const navigateToDetailScreen = (item: any) => {
+
+    // call then reducer for save selected item id
+    dispatch(setCurrentOpenedProductId(item._id))
+
+    //call action with payload fetch product detail.
+    dispatch(getProductDetails(item._id))
+    navigate("ProductDetail");
+  };
+
   return (
-    <View style={[styles.productCard, { marginRight: isOdd ? 0 : 10 }]}>
+    <TouchableOpacity
+      onPress={() => navigateToDetailScreen(item)}
+      style={[styles.productCard, { marginRight: isOdd ? 0 : 10 }]}
+    >
       <View style={styles.imageContainer}>
-        <Image source={{ uri: item?.image_uri }} style={styles.productImage} />
+        <Image source={{ uri: item?.image }} style={styles.productImage} />
       </View>
 
       <View style={{ paddingHorizontal: 10 }}>
         <Text style={styles.productName}>{item?.name}</Text>
-        <Text numberOfLines={2} style={styles.productDesc}>
-          {item?.description}
-        </Text>
+        <TextBadge text={item?.brand} />
         <View style={styles.priceContainer}>
           <Text style={styles.productPrice}>
             <Text style={{ textDecorationLine: "line-through", opacity: 0.6 }}>
-              ₹{item?.price + 599}
+              ₹{item?.originalPrice + 599}
             </Text>{" "}
-            ₹{item?.price}
+            ₹{item?.sellingPrice}
           </Text>
           <View style={styles.flexRow}>
             <View style={styles.hotDealContainer}>
@@ -28,71 +45,84 @@ const ProductItem = ({ item, isOdd }: any) => {
             </View>
           </View>
         </View>
-        <UniversalAddItem item={item}/>
+        <UniversalAddItem item={item} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
-}; 
+};
 
-export default ProductItem;
+export default memo(ProductItem);
 
 const styles = StyleSheet.create({
   productCard: {
     backgroundColor: "#fff",
     width: "48%",
+    borderRadius: 10,
     overflow: "hidden",
-    marginRight: 10,
+    marginBottom: 14,
+
+    elevation: 3,
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
   },
+
   imageContainer: {
     backgroundColor: "#f7f7f7",
     width: "100%",
-    height: 240,
+    aspectRatio: 3 / 4,
+    justifyContent: "center",
+    alignItems: "center",
   },
+
   productImage: {
     width: "100%",
     height: "100%",
     resizeMode: "cover",
   },
+
   productName: {
-    fontSize: RFValue(15),
-    marginTop: 10,
-    fontWeight: "bold",
+    fontSize: RFValue(14),
+    marginTop: 8,
+    fontWeight: "700",
+    color: "#111",
   },
+
   productDesc: {
-    fontSize: RFValue(10),
-    color: "#555",
-    textAlign: "left",
-    marginTop: 5,
+    fontSize: RFValue(13),
+    color: "#666",
+    marginTop: 4,
   },
+
   productPrice: {
     fontSize: RFValue(13),
     color: "#000",
-    marginVertical: 8,
-    fontWeight: "500",
+    fontWeight: "600",
   },
-  flexRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  hotDealContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 5,
-    marginVertical: 5,
-    borderRadius: 4,
-    alignSelf: "flex-start",
-    backgroundColor: "#e7f9ec",
-  },
-  hotDealText: {
-    color: "#35ab4f",
-    fontSize: RFValue(13),
-    fontWeight: "700",
-  },
+
   priceContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginVertical: 5,
+    marginTop: 6,
+  },
+
+  flexRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  hotDealContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 3,
+    borderRadius: 4,
+    backgroundColor: "#EAF7EE",
+  },
+
+  hotDealText: {
+    color: "#1E8E3E",
+    fontSize: RFValue(11),
+    fontWeight: "700",
   },
 });

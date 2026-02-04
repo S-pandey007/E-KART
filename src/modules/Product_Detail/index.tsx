@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import HeaderAdvertisement from "@/src/components/organisms/HeaderAdvertisement";
 import { HeaderAdvertisment } from "@/src/utils/searchData";
 import SearchInput from "../Search/molecules/SearchInput";
@@ -16,16 +16,50 @@ import DeliveryDetail from "./organisms/DeliveryDetail";
 import SimilarProducts from "./organisms/SimilarProducts";
 import ExploreMore from "./organisms/ExploreMore";
 import Review from "../Review";
+import { useAppDispatch, useAppSelector } from "@/src/store/reduxHook";
+import { clearCurrectProductDetail } from "./api/slice";
+import SectionTitle from "../Search/atoms/SectionTitle";
+import { addItem } from "../cart/api/slice";
 
 const ProductDetail = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
+  const dispatch = useAppDispatch();
+  const product = useAppSelector((state: any) => state.product.data);
+  const user = useAppSelector((state)=>state.account.user)
 
   const callSearchAPI = () => {
     if (search.trim().length > 0) {
       navigate("SearchResult", { query: search });
     }
   };
+
+  useEffect(()=>{
+    console.debug("currect product data : ",product)
+  },[product])
+
+  // useEffect(() => {
+  //   return () => {
+  //     dispatch(clearCurrectProductDetail());
+  //   };
+  // }, []);
+
+  // add to cart dispatch 
+  const addToCart=()=>{
+    if(!user){
+      navigate("Login")
+      return 
+    }
+    const item={
+      _id:product?._id,
+      name:product?.name,
+      price:product?.sellingPrice,
+      quantity:1,
+      totalPrice:product?.sellingPrice
+    }
+    dispatch(addItem(item))
+  }
+
   return (
     <SafeAreaView style={[styles.container]} edges={["bottom"]}>
       <SearchInput
@@ -65,6 +99,9 @@ const ProductDetail = () => {
                 {/* choose item based on color  */}
                 <ChooseColorItem />
 
+                {/* product name  */}
+                <SectionTitle title={product?.name}/>
+
                 {/* product price  */}
                 <PriceInfo
                   sellingPrice={2000}
@@ -88,18 +125,18 @@ const ProductDetail = () => {
                 {/* similar products  */}
                 <SimilarProducts />
 
-                {/* explore more like this  */} 
-                <ExploreMore/>
+                {/* explore more like this  */}
+                <ExploreMore />
 
                 {/* rating and reviews  */}
-                <Review/>
+                <Review />
               </>
             }
           />
 
           <PurchaseButton
             onBuyNow={() => console.debug("buy now")}
-            onAddToCart={() => console.debug("add to cart")}
+            onAddToCart={() => addToCart()}
           />
         </>
       )}
@@ -107,7 +144,7 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default memo(ProductDetail);
 
 const styles = StyleSheet.create({
   container: {

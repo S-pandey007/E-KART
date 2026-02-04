@@ -48,49 +48,39 @@ const Account = () => {
   return (
     <SafeAreaView
       edges={["top"]}
-      style={{ flex: 1, backgroundColor: Colors.primaryBG }}
+      style={{ flex: 1 }}
     >
-      <FlatList
-        data={[{ id: "dummy" }]}
-        keyExtractor={(item) => item.id}
-        renderItem={null}
-        showsVerticalScrollIndicator={false}
-        ListHeaderComponent={
-          <>
-            {/* Header */}
-            <View style={styles.headContainer}>
-              <HeaderCard
-                name={
-                  user ? user.data.userSafe.fullName : "Please Login or Signup"
-                }
-                email={user ? user.data.userSafe.email : ""}
-                btnText={user ? "Logout" : "Login"}
-                onPress={user ? () => handleLogout() : () => navigate("Login")}
-              />
-              {user && <OptionsCollection />}
-            </View>
-            {user ? (
-              <>
-                {/* Recently Viewed */}
-                <RecentlyViewedList />
+      {user ? (
+        <FlatList
+          data={[{ id: "dummy" }]}
+          keyExtractor={(item) => item.id}
+          renderItem={null}
+          showsVerticalScrollIndicator={false}
+          ListHeaderComponent={
+            <>
+              {/* Header */}
+              <View style={styles.headContainer}>
+                <HeaderCard
+                  name={user.data.userSafe.fullName}
+                  email={user.data.userSafe.email}
+                  btnText="Logout"
+                  onPress={handleLogout}
+                />
+                <OptionsCollection />
+              </View>
 
-                {/* Sponsored Banner */}
-                <AdvertisementBannerAtom image={AdvertisementBannerImage} />
-
-                {/* Account Options */}
-                <AccountSettingsList />
-
-                {/* my activity  */}
-                <MyActivity />
-              </>
-            ) : (
-              <>
-                <LoggedOutState image={AccountIcons.userLogin} />
-              </>
-            )}
-          </>
-        }
-      />
+              <RecentlyViewedList />
+              <AdvertisementBannerAtom image={AdvertisementBannerImage} />
+              <AccountSettingsList />
+              <MyActivity />
+            </>
+          }
+        />
+      ) : (
+        <View style={styles.loggedOutWrapper}>
+          <LoggedOutState image={AccountIcons.userLogin} />
+        </View>
+      )}
     </SafeAreaView>
   );
 };
@@ -102,10 +92,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     paddingVertical: scale(10),
   },
-  loginAlertContainer: {
+  loggedOutWrapper: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: scale(10),
   },
   loginAlertText: {
     fontFamily: FONTS.MEDIUM,

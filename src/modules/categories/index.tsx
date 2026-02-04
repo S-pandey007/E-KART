@@ -1,120 +1,123 @@
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from "react-native";
+import React, { FC, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/src/store/reduxHook";
+import { getCategories } from "./api/actions";
+import { RFValue } from "react-native-responsive-fontsize";
+import { Colors, FONTS } from "@/src/utils/Constants";
+import { navigate } from "@/src/navigation/NavigationUtils";
 
-import { View, Text,StyleSheet, ActivityIndicator, FlatList, TouchableOpacity, Image } from 'react-native'
-import React,{FC, useEffect} from 'react'
-import { useDispatch } from 'react-redux'
-import { useAppDispatch, useAppSelector } from '@/src/store/reduxHook'
-import { getCategories } from './api/actions'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { FONTS } from '@/src/utils/Constants'
-import { navigate } from '@/src/navigation/NavigationUtils'
-
-const Categories:FC = () => {
-
+const Categories: FC = () => {
   // fetch data from redux-saga
-  const dispatch = useAppDispatch()
-  const {data,loading,error}=useAppSelector(state=>state.categories);
- 
+  const dispatch = useAppDispatch();
+  const { data, loading, error } = useAppSelector((state) => state.categories);
+
   // call categories action
- useEffect(()=>{
-  dispatch(getCategories())
- },[])
- 
- 
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.title}>Categories</Text>
-        <Text style={styles.subtitle}>Explore our wide range of categories</Text>
+        <Text style={styles.subtitle}>
+          Explore our wide range of categories
+        </Text>
       </View>
 
-      {
-        loading ?
-        <ActivityIndicator size='small' color='black'/>:
+      {loading ? (
+        <ActivityIndicator size="small" color="black" />
+      ) : (
         <FlatList
-        data={data}
-        numColumns={2}
-        keyExtractor={(item)=>item._id.toString()}
-        renderItem={({item})=>(
-          <TouchableOpacity
-          style={styles.itemContainer}
-          onPress={()=>navigate('Products',{
-            id:item._id,
-            name:item.name
-          })}
-          >
-            <Image source={{uri:item?.image_uri}}
-            style={styles.image}
-            />
-            <Text
-            style={styles.name}
-            >{item?.name}</Text>
-          </TouchableOpacity>
-        )}
-        ListFooterComponent={<>
-          {
-            error&&<Text style={styles.subtitle}>There was error</Text>
+          data={data}
+          numColumns={2}
+          keyExtractor={(item) => item._id.toString()}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.itemContainer}
+              onPress={() =>
+                navigate("Products", {
+                  id: item._id,
+                  name: item.name,
+                })
+              }
+            >
+              <Image source={{ uri: item?.image_uri }} style={styles.image} />
+              <Text style={styles.name}>{item?.name}</Text>
+            </TouchableOpacity>
+          )}
+          ListFooterComponent={
+            <>{error && <Text style={styles.subtitle}>There was error</Text>}</>
           }
-        </>}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainer}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.contentContainer}
         />
-      }
+      )}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    backgroundColor:'#e7f9ec'
+  container: {
+    flex: 1,
+    backgroundColor:Colors.primaryBG,
   },
-  headerContainer:{
-    padding:28,
-    backgroundColor:"#fff",
-    alignItems:'flex-start',
-    marginBottom:10,
-    borderBottomWidth:1,
-    borderBottomColor:'#ddd'
+  headerContainer: {
+    padding: 28,
+    backgroundColor: "#fff",
+    alignItems: "flex-start",
+    marginBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
   },
-  title:{
-    fontSize:RFValue(18),
-    fontFamily:FONTS.heading,
-    fontWeight:'bold',
-    color:'#333'
+  title: {
+    fontSize: RFValue(18),
+    fontFamily: FONTS.heading,
+    fontWeight: "bold",
+    color: "#333",
   },
-  subtitle:{
-    fontSize:RFValue(13),
-    color:'#666',
-    marginTop:5
+  subtitle: {
+    fontSize: RFValue(13),
+    color: "#666",
+    marginTop: 5,
   },
 
   // render item
-  image:{
-    width:80,
-    height:80,
-    borderRadius:10
+  image: {
+    width: 80,
+    height: 80,
+    borderRadius: 10,
   },
-  name:{
-    marginTop:10,
-    fontSize:RFValue(12),
-    fontWeight:'500',
-    color:'#333'
+  name: {
+    marginTop: 10,
+    fontSize: RFValue(12),
+    fontWeight: "500",
+    color: "#333",
   },
-  itemContainer:{
-    flex:1,
-    margin:5,
-    alignItems:'center',
-    backgroundColor:'#fff',
-    borderRadius:10,
-    padding:10,
-    shadowColor:'#000',
-    shadowOffset:{width:0,height:2},
-    shadowOpacity:0.1,
-    shadowRadius:5,
-    elevation:3
+  itemContainer: {
+    flex: 1,
+    margin: 5,
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
   },
-  contentContainer:{
-    padding:10
-  }
-})
-export default Categories
+  contentContainer: {
+    padding: 10,
+  },
+});
+export default Categories;
